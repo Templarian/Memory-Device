@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "module": "ESNext",
+        "target": "ESNext",
+        "strict": true,
+        "noImplicitAny": true,
+        "moduleResolution": "Node",
+        "lib": ["ESNext"],
+        "paths": {
+            "ui:*": [
+                "ui/*"
+            ]
+        },
+        "typeRoots": [
+            "./typings"
+        ],
+        "experimentalDecorators": true
+    }
+}

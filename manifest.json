@@ -1,0 +1,57 @@
+{
+	"include": [
+		"$(MODDABLE)/examples/manifest_base.json",
+		"$(MODDABLE)/examples/manifest_typings.json",
+		"$(MODDABLE)/examples/manifest_commodetto.json",
+		"$(MODDABLE)/modules/io/manifest.json",
+		"$(MODDABLE)/modules/files/resourceiterator/manifest.json",
+		"$(MODDABLE)/modules/network/wifi/manifest.json"
+	],
+	"modules": {
+		"*": [
+			"./device",
+			"./main",
+			"./constants",
+			"./ui/constants",
+			"./ui/primitive",
+			"./ui/icon"
+		],
+		"ui:icon": "./ui/icon"
+	},
+	"resources": {
+		"*": [
+			"./moddable-white",
+			"./Icons",
+			"./splash"
+		]
+	},
+	"config": {
+		"screen": "ls013b4dn04",
+		"touch": "",
+		"format": "Gray256"
+	},
+	"defines": {
+		"ls013b4dn04": {
+			"width": 400,
+			"height": 240,
+			"cs_pin": 15,
+			"spi_port": "HSPI_HOST"
+		}
+	},
+	"platforms": {
+		"esp32/*": {
+			"include": []
+		},
+		"esp32/esp32_thing": {
+			"config": {
+				"screen": "ls013b4dn04",
+				"touch": "",
+				"format": "Gray256"
+			}
+		},
+		"...": {
+			"supported": false
+		}
+	},
+	"strip": "*"
+}
