@@ -1,10 +1,13 @@
+import Bitmap from 'commodetto/Bitmap';
 import Primitive, { PrimitiveProps } from './primitive';
+
+type IconSource = [Bitmap, number, number, number];
 
 interface IconProps {
     x?: number;
     y?: number;
     isBlack?: boolean;
-    source: [any, number, number, number]
+    source: IconSource
 }
 
 class Icon extends Primitive {
@@ -14,7 +17,7 @@ class Icon extends Primitive {
         this.#x = props.x || 0;
         this.#y = props.y || 0;
         this.#source = props.source;
-        this.#fill = 1;
+        this.#isBlack = props.isBlack || true;
     }
 
     #x: number;
@@ -35,7 +38,7 @@ class Icon extends Primitive {
         this.render();
     }
 
-    #source: [any, number, number, number];
+    #source: IconSource;
     get source() {
         return this.#source;
     }
@@ -44,12 +47,12 @@ class Icon extends Primitive {
         this.render();
     }
 
-    #fill: 0 | 1;
-    get fill() {
-        return this.#fill;
+    #isBlack: boolean;
+    get isBlack() {
+        return this.#isBlack;
     }
-    set fill(value) {
-        this.#fill = value;
+    set isBlack(value) {
+        this.#isBlack = value;
         this.render();
     }
 
@@ -60,7 +63,9 @@ class Icon extends Primitive {
             this.#y,
             this.#source[1] * this.#source[2],
             this.#source[1] * this.#source[3],
-            this.$fill
+            this.#source[1],
+            this.#source[1],
+            this.#isBlack
         );
     }
 

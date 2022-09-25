@@ -4,7 +4,7 @@ import WiFi from "wifi";*/
 
 import Application from "ui:application";
 import Icon from "ui:icon";
-import { IconAlert, IconFile } from "ui:icons";
+import { IconAlert, IconFile, IconSword } from "ui:icons";
 import Button from "ui:button";
 
 const app = new Application({
@@ -25,7 +25,7 @@ const app = new Application({
       action: (app, state) => {
         state.toggle = !state.toggle;
         const icon = app.query('icon');
-        icon.source = state ? IconAccount : IconFile;
+        icon.source = state ? IconSword : IconFile;
       },
       cancel: (app) => {
         app.restart();
@@ -33,7 +33,7 @@ const app = new Application({
     })
   ]
 });
-app.start({});
+app.start(device);
 /*
 // Let me know it's working
 let count = 0;

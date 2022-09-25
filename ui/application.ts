@@ -2,7 +2,7 @@ import { Device } from "device";
 import Primitive, { PrimitiveProps } from "ui:primitive";
 
 interface ApplicationProps {
-
+    state: { [key: string]: number | string | boolean }
 }
 
 class Application extends Primitive {
@@ -11,7 +11,7 @@ class Application extends Primitive {
         super(props);
     }
 
-    open(app) {
+    open() {
 
     }
 
